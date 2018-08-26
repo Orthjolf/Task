@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Threading;
 using ConsoleApp1.DataProvider;
 using ConsoleApp1.Domain;
 
@@ -55,7 +56,8 @@ namespace ConsoleApp1
 				user.ExecutedBookings++;
 				User.Repository.Update(user);
 
-				Console.WriteLine("Пользователь {0} забронировал {1} товаров. Остаток на складе - {2}", user.Name,
+				Console.WriteLine("Поток: {0}. Пользователь {1} забронировал {2} товаров. Остаток на складе - {3}.",
+					Thread.CurrentThread.Name, user.Name,
 					count,
 					Product.Repository.GetAll().FirstOrDefault(p => p.Name == productName)?.Balance);
 			}

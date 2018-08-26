@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using ConsoleApp1.DataProvider;
@@ -18,25 +19,18 @@ namespace ConsoleApp1
 
 			var users = User.Repository.GetAll().ToList();
 
-			var t1 = new Thread(() =>
+			var threads = Enumerable.Range(0, 10).Select(i => new Thread(() =>
 			{
-				for (int i = 0; i < 10; i++)
+				for (var j = 0; j < 10; j++)
 				{
-					storage.ReserveProduct(users[0], "SomeProduct", 1);
+					storage.ReserveProduct(users[i], "SomeProduct", 1);
 				}
-			});
-
-			t1.Start();
-
-			var t2 = new Thread(() =>
+			})
 			{
-				for (int i = 0; i < 10; i++)
-				{
-					storage.ReserveProduct(users[1], "SomeProduct", 1);
-				}
-			});
+				Name = "thread_" + i
+			}).ToList();
 
-			t2.Start();
+			threads.ForEach(t => t.Start());
 		}
 	}
 }
