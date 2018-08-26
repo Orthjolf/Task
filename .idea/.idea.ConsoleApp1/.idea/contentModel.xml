@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Вильгельм\.Rider2018.1\system\resharper-host\local\Transient\ReSharperHost\v12\SolutionCaches\_ConsoleApp1.122132205.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Вильгельм\source\repos\ConsoleApp1" t="IncludeFlat">
+      <e p="ConsoleApp1" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ConsoleApp1.csproj" t="IncludeRecursive" />
+        <e p="DataProvider" t="Include">
+          <e p="ApplicationDbContext.cs" t="Include" />
+          <e p="IRepository.cs" t="Include" />
+          <e p="Repository.cs" t="Include" />
+          <e p="Seed.cs" t="Include" />
+        </e>
+        <e p="Domain" t="Include">
+          <e p="BookingInfo.cs" t="Include" />
+          <e p="Entity.cs" t="Include" />
+          <e p="Product.cs" t="Include" />
+          <e p="User.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="ShopStorage.cs" t="Include" />
+      </e>
+      <e p="ConsoleApp1.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
