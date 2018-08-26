@@ -17,16 +17,26 @@ namespace ConsoleApp1
 			var storage = new ShopStorage();
 
 			var users = User.Repository.GetAll().ToList();
-			
+
 			var t1 = new Thread(() =>
 			{
-				storage.ReserveProduct(users[0], "SomeProduct", 1);
+				for (int i = 0; i < 10; i++)
+				{
+					storage.ReserveProduct(users[0], "SomeProduct", 1);
+				}
 			});
-			
+
+			t1.Start();
+
 			var t2 = new Thread(() =>
 			{
-				storage.ReserveProduct(users[1], "SomeProduct", 2);
+				for (int i = 0; i < 10; i++)
+				{
+					storage.ReserveProduct(users[1], "SomeProduct", 1);
+				}
 			});
+
+			t2.Start();
 		}
 	}
 }
