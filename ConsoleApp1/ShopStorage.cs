@@ -13,7 +13,7 @@ namespace ConsoleApp1
 		/// <summary>
 		/// Забронировать товар
 		/// </summary>
-		/// <param name="user">Пользователь</param>
+		/// <param name="user">Пользователь, который осуществляет бронирование</param>
 		/// <param name="productName">Наименование товара</param>
 		/// <param name="count">Количество бронируемого товара</param>
 		public void ReserveProduct(User user, string productName, int count)
@@ -56,7 +56,7 @@ namespace ConsoleApp1
 				user.ExecutedBookings++;
 				User.Repository.Update(user);
 
-				Console.WriteLine("Поток: {0}. Пользователь {1} забронировал {2} товаров. Остаток на складе - {3}.",
+				Console.WriteLine("Поток: {0}. Пользователь {1} забронировал {2} товар. Остаток на складе - {3}.",
 					Thread.CurrentThread.Name, user.Name,
 					count,
 					Product.Repository.GetAll().FirstOrDefault(p => p.Name == productName)?.Balance);

@@ -27,7 +27,7 @@ namespace ConsoleApp1.DataProvider
 			return _dbSet.FirstOrDefault(e => e.Id == id);
 		}
 
-		public IEnumerable<T> GetAll()
+		public List<T> GetAll()
 		{
 			return _dbSet.ToList();
 		}

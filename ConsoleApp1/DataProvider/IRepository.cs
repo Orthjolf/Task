@@ -15,7 +15,7 @@ namespace ConsoleApp1.DataProvider
 		/// Получить все сущности
 		/// </summary>
 		/// <returns>Сущности</returns>
-		IEnumerable<T> GetAll();
+		List<T> GetAll();
 
 		/// <summary>
 		/// Добавить сущность в базу данных

@@ -3,9 +3,12 @@ using ConsoleApp1.DataProvider;
 
 namespace ConsoleApp1.Domain
 {
+	/// <summary>
+	/// Информация о бронировании товара
+	/// </summary>
 	public class BookingInfo : Entity
 	{
-		public static Repository<BookingInfo> Repository => Repository<BookingInfo>.Instance;
+		public static IRepository<BookingInfo> Repository => Repository<BookingInfo>.Instance;
 
 		/// <summary>
 		/// Дата бронирования товара
@@ -23,7 +26,7 @@ namespace ConsoleApp1.Domain
 		public long UserId { get; set; }
 
 		/// <summary>
-		/// Количество товара
+		/// Количество единиц забронированного товара
 		/// </summary>
 		public int Count { get; set; }
 	}

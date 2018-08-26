@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
-using ConsoleApp1.DataProvider;
+﻿using ConsoleApp1.DataProvider;
 
 namespace ConsoleApp1.Domain
 {
+	/// <summary>
+	/// Пользователь, который осуществляет бронирование
+	/// </summary>
 	public class User : Entity
 	{
-		public static Repository<User> Repository => Repository<User>.Instance;
+		public static IRepository<User> Repository => Repository<User>.Instance;
 
 		/// <summary>
 		/// Имя
@@ -21,10 +23,5 @@ namespace ConsoleApp1.Domain
 		/// Осуществлено бронирований
 		/// </summary>
 		public int ExecutedBookings { get; set; }
-
-		/// <summary>
-		/// Информация о бронировании товара
-		/// </summary>
-		public IEnumerable<BookingInfo> BookingInfos { get; set; }
 	}
 }

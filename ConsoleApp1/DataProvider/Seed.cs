@@ -1,4 +1,7 @@
-﻿using ConsoleApp1.Domain;
+﻿using System.Data.Entity.Core.Common.CommandTrees;
+using System.Data.Entity.Core.Metadata.Edm;
+using System.Linq;
+using ConsoleApp1.Domain;
 
 namespace ConsoleApp1.DataProvider
 {
@@ -7,7 +10,7 @@ namespace ConsoleApp1.DataProvider
 		/// <summary>
 		/// Заполнение бд
 		/// </summary>
-		private static void Fill(int balance, int users)
+		private static void Fill(int balance)
 		{
 			Product.Repository.Add(new Product
 			{
@@ -15,15 +18,6 @@ namespace ConsoleApp1.DataProvider
 				Price = 50,
 				Balance = balance
 			});
-
-			for (var i = 0; i < users; i++)
-			{
-				User.Repository.Add(new User
-				{
-					Name = "User_" + i,
-					Money = 10
-				});
-			}
 		}
 
 		/// <summary>
@@ -40,11 +34,26 @@ namespace ConsoleApp1.DataProvider
 		/// Сбрасывает базу к исходному состоянию
 		/// </summary>
 		/// <param name="balance">Количество товара на складе</param>
-		/// <param name="users">Количество пользователей</param>
-		public static void Reset(int balance, int users)
+		public static void Reset(int balance)
 		{
 			Clear();
-			Fill(balance, users);
+			Fill(balance);
+		}
+
+		/// <summary>
+		/// Создает пользоватлеей в базе данных
+		/// </summary>
+		/// <param name="count">Количество пользователей</param>
+		public static void CreateUsersInDataBase(int count)
+		{
+			for (var i = 0; i < count; i++)
+			{
+				User.Repository.Add(new User
+				{
+					Name = "User_" + i,
+					ExecutedBookings = 0
+				});
+			}
 		}
 	}
 }

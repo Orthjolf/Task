@@ -2,9 +2,12 @@
 
 namespace ConsoleApp1.Domain
 {
+	/// <summary>
+	/// Продукт на складе
+	/// </summary>
 	public class Product : Entity
 	{
-		public static Repository<Product> Repository => Repository<Product>.Instance;
+		public static IRepository<Product> Repository => Repository<Product>.Instance;
 
 		/// <summary>
 		/// Название
@@ -17,7 +20,7 @@ namespace ConsoleApp1.Domain
 		public int Price { get; set; }
 
 		/// <summary>
-		/// Остаток на складе
+		/// Остаток
 		/// </summary>
 		public int Balance { get; set; }
 	}
