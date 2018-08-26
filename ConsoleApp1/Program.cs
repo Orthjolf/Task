@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
 using ConsoleApp1.DataProvider;
 using ConsoleApp1.Domain;
 
@@ -16,13 +17,16 @@ namespace ConsoleApp1
 			var storage = new ShopStorage();
 
 			var users = User.Repository.GetAll().ToList();
-
-			for (var i = 0; i < 100; i++)
+			
+			var t1 = new Thread(() =>
 			{
-				var random = new Random();
-				var randomUser = users[random.Next(users.Count - 1)];
-				storage.ReserveProduct(randomUser, "Bread", random.Next(1, 4));
-			}
+				storage.ReserveProduct(users[0], "SomeProduct", 1);
+			});
+			
+			var t2 = new Thread(() =>
+			{
+				storage.ReserveProduct(users[1], "SomeProduct", 2);
+			});
 		}
 	}
 }

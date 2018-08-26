@@ -11,7 +11,7 @@ namespace ConsoleApp1.DataProvider
 		{
 			Product.Repository.Add(new Product
 			{
-				Name = "Bread",
+				Name = "SomeProduct",
 				Price = 50,
 				Balance = balance
 			});
